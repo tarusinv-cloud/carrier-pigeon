@@ -41,7 +41,7 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Sego
 .auth-toggle a { color: var(--accent); text-decoration: none; }
 
 /* Chat Layout */
-#chat-screen { display: flex; height: 100%; }
+#chat-screen { display: flex; height: 100%; overflow: hidden; }
 
 /* Sidebar */
 #sidebar { width: 340px; min-width: 340px; background: var(--bg-secondary); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
@@ -66,7 +66,7 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Sego
 .online-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; margin-left: 6px; }
 
 /* Chat Main */
-#chat-main { flex: 1; display: flex; flex-direction: column; background: var(--bg-primary); min-width: 0; }
+#chat-main { flex: 1; display: flex; flex-direction: column; background: var(--bg-primary); min-width: 0; overflow: hidden; }
 .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-secondary); }
 .empty-icon { font-size: 72px; margin-bottom: 16px; opacity: 0.5; }
 .empty-state h3 { font-size: 22px; color: var(--text-primary); margin-bottom: 8px; }
@@ -123,11 +123,20 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Sego
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  #sidebar { width: 280px; min-width: 280px; }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
+  #chat-screen { position: relative; }
   #sidebar { width: 100%; min-width: 100%; }
-  #chat-main { display: none; position: absolute; inset: 0; z-index: 10; }
-  #chat-main.show { display: flex; }
+  #chat-main { display: none !important; position: absolute; inset: 0; z-index: 10; }
+  #chat-main.show { display: flex !important; flex-direction: column !important; }
   .mobile-only { display: inline-flex; }
   .message { max-width: 85%; }
+  #message-input-area { padding: 8px 12px; }
+  #chat-header { padding: 10px 14px; }
+  #messages-container { padding: 12px 14px; }
 }
