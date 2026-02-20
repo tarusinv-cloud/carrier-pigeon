@@ -66,7 +66,9 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Sego
 .online-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; margin-left: 6px; }
 
 /* Chat Main */
-#chat-main { flex: 1; display: flex; flex-direction: column; background: var(--bg-primary); min-width: 0; overflow: hidden; }
+#chat-main { flex: 1; display: flex !important; flex-direction: column !important; background: var(--bg-primary); min-width: 0; overflow: hidden; }
+#chat-main > * { flex-shrink: 0; }
+#messages-container { flex-shrink: 1 !important; flex-grow: 1 !important; min-height: 0; }
 .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-secondary); }
 .empty-icon { font-size: 72px; margin-bottom: 16px; opacity: 0.5; }
 .empty-state h3 { font-size: 22px; color: var(--text-primary); margin-bottom: 8px; }
