@@ -21,15 +21,15 @@ const Auth = {
     if (Auth.isRegister) {
       usernameEl.style.display = '';
       usernameEl.required = true;
-      btn.textContent = 'Sign Up';
-      toggle.textContent = 'Log In';
-      toggle.parentElement.firstChild.textContent = 'Already have an account? ';
+      btn.textContent = 'Регистрация';
+      toggle.textContent = 'Войти';
+      toggle.parentElement.firstChild.textContent = 'Уже есть аккаунт? ';
     } else {
       usernameEl.style.display = 'none';
       usernameEl.required = false;
-      btn.textContent = 'Log In';
-      toggle.textContent = 'Sign Up';
-      toggle.parentElement.firstChild.textContent = "Don't have an account? ";
+      btn.textContent = 'Войти';
+      toggle.textContent = 'Регистрация';
+      toggle.parentElement.firstChild.textContent = 'Нет аккаунта? ';
     }
     $('#auth-error').textContent = '';
   },
@@ -48,7 +48,7 @@ const Auth = {
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
       App.currentUser = data.user;
-      App.showChat();
+      App.showApp();
     } catch (err) {
       errorEl.textContent = err.message;
     }
@@ -60,6 +60,6 @@ const Auth = {
     App.currentUser = null;
     Chat.disconnect();
     $('#auth-screen').style.display = 'flex';
-    $('#chat-screen').style.display = 'none';
+    $('#app-screen').style.display = 'none';
   }
 };
